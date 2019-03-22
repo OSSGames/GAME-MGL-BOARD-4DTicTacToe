@@ -1,0 +1,139 @@
+4D Tic-Tac-Toe - An MGL Test App. by Marty Amodeo
+=================================================
+Version 1.1 - 4/4/2000
+
+This is a simple application I threw together using Scitech's excellent
+MGL (Multiplatform Graphics Library).  Though it is not terribly graphically
+impressive, it exercises the ability of MGL to change to 640x480 8 bit color
+screen mode and display graphics and directly access the hardware color
+palette.  So far, most reports have been good, so I'm releasing the source
+code in this package.
+
+This version was built entirely using EMX, which was no small task.  As 
+such, it may have some special kinks to work out, so I'm re-releasing this
+demo to see if any EMX-specific quirks show up.  After this, on to
+Retrocade and then MAME.  Also, if I determine my EMX-built libraries are
+functioning well, I will distribute my ready-compiled MGL libraries, given
+Scitech's permission to do so.
+
+REQUIREMENTS:
+-------------
+You *must* install and boot up with a copy of SDDHELP.SYS from Scitech's
+Display Doctor software from beta 19 or higher.  You must do this NO MATTER
+WHICH VIDEO DRIVERS YOU ARE CURRENTLY USING.
+
+This version also requires that the EMX runtime libraries are installed
+on your system.  Download EMX .9d runtime (EMXRT.ZIP) from Hobbes or your
+favorite OS/2 software archive.
+
+RECOMMENDATIONS:
+----------------
+If the Scitech Display Doctor video drivers work with your video hardware,
+USE THEM.  :-)
+
+CHANGES THIS VERSION:
+---------------------
+* BUILT USING EMX .9D
+* SOURCE CODE RELEASED
+* REMOVED ALL OS/2 PLATFORM DEPENDENCIES - this same source file should
+  build under other MGL-supported environments (such as Linux, DOS, and
+  <gag> Windoze) without touching a single line of code!
+* Fixed a bug in scoring.  This also fixed a bug in the AI which relied
+  on the scoring working properly.
+* Made the fade-in/fade-out sequences a bit faster
+* Fixed the initial "flash" of a block to the wrong color during a fade-in
+
+NOTES:
+------
+If you use your vendor-provided video drivers, you will not be able to
+take advantage of Scitech's Nucleus architecture and will not be able to
+take advantage of many features of MGL, but will still be able to change
+screen modes and have direct access to hardware, improving performance over
+sticking to your desktop screen resolution and color depth.
+
+Note that although you can switch out of the full screen graphics mode
+using ALT-ESC, it is not recommended, as the application will remain
+running, assuming it has full control of your display hardware.  I am
+working on a way to fix this.  If you do happen to pop back to your PM
+desktop while it is running, do not go back to the full screen session.
+Bring up the window list and kill off the session.  Then go into and out
+of a different full screen session to redraw the desktop properly.
+
+MATROX OWNERS BEWARE!  I've tried MGL apps with the latest Matrox vendor
+drivers for my Millenium 2 and they have resulted in locking up my system.
+Be warned.  If you can use Scitech Display Doctor as your video drivers,
+the lockups do not occur.
+
+I have included the version of SDDHELP.SYS that I used to test this
+program.  If you have your own version of SDDHELP.SYS installed on your
+system already, then try using yours first and replace it only if this
+program does not function with your version.  If you are using the
+Scitech Display Doctor video drivers themselves, you should not replace
+SDDHELP.SYS.  If your version is too old and this program does not
+function, then update SDD itself on your system which will update
+SDDHELP.SYS automatically.
+
+If you get an error message on startup that says "No error", try the 
+following (this is taken from a UseNet posting from Scitech's news
+server in scitech.mgl.developer written by "Chris van der [Togt"
+<c.vandertogt@amc.uva.nl>):
+
+> Make sure you have a "config" directory in your drivers directory.
+> Change graphics.vbe to graphics.bpd.  See if this helps.
+
+RULES OF THE GAME:
+------------------
+Play Tic-Tac-Toe!  Just like the way it was when you were a kid, only a tie
+is MUCH less likely.  ;-)
+
+You may score by getting 3 in a row *in any dimension*.  Of course, the
+standard X, Y, and Z coordinates apply to horizontal, vertical, and depth.
+In addition, I've added a 4th dimension:  "time".  The column of boards on
+the left represents the "past", the center column is the "present", and the
+right column is the "future".  Being an immortal god of Tic-Tac-Toe, you may
+move freely throughout these boards and place moves in whichever time-frame
+you like.  If you get three in a straight row in any dimension, or diagonal
+in any dimension, or straight in one dimension and diagonal in another, or
+... the possibilities are many to score.
+
+Try if you can to defeat AI I have programmed, or sit back and watch the AI
+play itself to learn some strategies.  I've made it fairly strong, taking 
+into account offensive and defensive moves.  It also takes into account
+potential ability to score and immediate ability to score.  If you do manage
+to beat it, drop me a line and let me know how close it was.  ;-)
+
+SOURCE CODE:
+------------
+The source code for this application is provided and should always be
+provided with any distribution of the binary.  When I determine that the
+MGL library files I've used to build the binary are fully functional, I
+will distribute them also (when I confirm that I have Scitech's permission
+to do so).  At that point, you should be able to unzip the archive and
+build your own version, but as of now, you'll have to build the MGL
+libraries yourself and my makefile will be non-functional.
+
+FEEDBACK:
+---------
+Write to mamedev@stny.rr.com and give me a "thumbs up" or "thumbs down"
+along with describing your video drivers and video hardware setup.
+
+LICENSE, RULES, BORING STUFF:
+-----------------------------
+This program belongs to me and me alone.  Nobody has any right whatsoever
+to sell it or slap their name all over it.  It must be freely available,
+either by FTP or through the web, or it may be distributed on a CD with
+other OS/2 shareware/freeware.  I have no ability or desire to back any of
+this up, so please, out of respect, honor this pathetic excuse for a
+license agreement.
+
+This program is available on an AS-IS basis, with no warranty, explicit or
+implied.  The software author (Marty Amodeo) is not liable for any hardware
+or software damage resulting from the use of this product.  Your use of this
+software marks your agreement to these terms.
+
+The included files (pc8x8.fnt and sddhelp.sys) were created by Scitech for
+use with Scitech's Multiplatform Graphics Library (MGL).  The license of MGL
+applies to these files.  Refer to http://www.scitechsoft.com for more 
+information on MGL and Scitech Display Doctor.
+
+
